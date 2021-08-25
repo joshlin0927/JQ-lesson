@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+    <div>
+        <input type="checkbox" name="alex">
+        <span>Alex</span>
+      </div>
+      <div>
+        <input type="checkbox" name="bill" checked>
+        <span>Bill</span>
+      </div>
+      
+
+
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        // : 冒號就是filter
+        $("td:even").css("background", "red");
+        $("td:odd").css("background", "green");
+        $("td:eq(0)").css("background", "blue");
+        $("td:gt(8)").css("background", "grey").css('color','white');
+        $("td:lt(3)").css("background", "lightblue");
+        $('td:last').css('background','lightblue')
+        $("td:gt(4):lt(6)").css("background", "lightgrey");
+        $(':header').css('color','cyan');
+        $('div + :header').css('color','purple');
+    </script>
+</body>
+
+</html>
