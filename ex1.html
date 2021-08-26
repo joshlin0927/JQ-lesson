@@ -58,11 +58,15 @@
 
     <script src="./jquery-3.6.0.js"></script>
     <script>
-        $(":checkbox").click(function(){
-            console.log('this:', this);
-            this.parent().parent().css('background', 'lightblue');
+        $(":checkbox").click(function () {
+            // console.log('this:', $(this).val());
+            $(this).parent().parent().css('background', 'lightblue');
+            if ($(this).is(':checked')) {
+                $(this).parent().parent().css('background', 'lightblue');
+            } else {
+                    $(this).parent().parent().css('background', 'white');
+            };
         });
-
     </script>
 </body>
 
