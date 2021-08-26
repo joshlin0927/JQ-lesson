@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>traversing-tree-parent</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <ul class="level-1">
+                <li class="item1">item-1</li>
+                <li class="item2">item-2
+                    <ul class="level-2">
+                        <li class="item01">item-01</li>
+                        <li class="item02">item-02
+                            <ul class="level-3">
+                                <li class="item001">item-001</li>
+                                <li class="item002">item-002</li>
+                                <li class="item003">item-003</li>
+                            </ul>
+                        </li>
+                        <li class="item03">item-03</li>
+                    </ul>
+                </li>
+                <li class="item3">item-3</li>
+            </ul>
+        </div>
+    </div>
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        $('.item002').parent().css('border','1px solid grey');
+        $('.item002').closest('.item02').css('border','1px solid red');
+        $('.item002').parents('.level-2').css('border','1px solid blue');
+        $('.item002').parents('.level-2').find('.item01').css('background','lightblue');
+    </script>
+</body>
+
+
+</html>

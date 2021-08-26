@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>ex2</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col box">box1</div>
+                <div class="col box">box2</div>
+                <div class="col box">box3</div>
+                <div class="col box">box4</div>
+            </div>
+            <div class="col">
+                <div class="col box">box5</div>
+                <div class="col box">box6</div>
+                <div class="col box">box7</div>
+                <div class="col box">box8</div>
+            </div>
+            <div class="col">
+                <div class="col box">box9</div>
+                <div class="col box">box10</div>
+                <div class="col box">box11</div>
+                <div class="col box">box12</div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        $('.box').click(function(){
+            console.log('this=',this.val());
+            this.nextAll().css('background','lightblue');
+        });
+        // $('.box').css('background','lightblue');
+    </script>
+</body>
+
+</html>
