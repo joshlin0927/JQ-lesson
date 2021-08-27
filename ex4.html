@@ -46,10 +46,12 @@
     <script src="./jquery-3.6.0.js"></script>
     <script>
         $('button.auto').click(function () {
-            console.log('this=', $(this).val());
+            event.preventDefault();
+            console.log('this=', $('input[type=checkbox]'));
             $('input[type = email]').val('background@gmail.com');
             $('input[type = password]').val('123456789');
-            $('input[type=checkbox]').attr('checked');
+            // $('input[type=checkbox]').attr('checked',true);
+            $('input[type=checkbox]').prop('checked',true);
             //怎麼讓checkbox被check?
         });
     </script>

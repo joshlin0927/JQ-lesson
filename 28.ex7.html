@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 300vh;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 50px;
+            background-color: #ccc;
+            position: fixed;
+            top: 0;
+        }
+
+        .box {
+            background-color: pink;
+            height: 50px;
+            width: 10%;
+        }
+    </style>
+    <title>ex7</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box">
+
+        </div>
+    </div>
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        $(window).scroll(function () {
+            // 1.使用者滾到哪?數字多少?
+            console.log('scrollTop', $(this).scrollTop());
+
+            // 2.網頁內容全部多長?
+            console.log($('body').scrollTop());
+
+            // 3.計算出閱讀百分比(誰是分母?誰是分子)
+            const percentage = ($(this).scrollTop() / $('body').height()) * 100;
+            console.log(parseInt(percentage));
+
+            // 4.最後，把CSS加入，改動寬度百分比
+            if (percentage == 66) {
+                $(window).scroll(function () {
+                    $('.box').css('width', `100%`);
+                });
+            } else {
+                $('.box').css('width', `${percentage}%`);
+            }
+            //TODO: 為什麼不能變成100%？
+            // scrollTop無法機算當前正在看的畫面的高，只能算已經滑過去的。
+        })
+    </script>
+</body>
+
+</html>
