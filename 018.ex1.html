@@ -59,13 +59,23 @@
     <script src="./jquery-3.6.0.js"></script>
     <script>
         $(":checkbox").click(function () {
-            // console.log('this:', $(this).val());
+            console.log('hi', $(this).attr('checked'));
+            console.log('hi', $(this).prop('checked'));
+
             $(this).parent().parent().css('background', 'lightblue');
             if ($(this).is(':checked')) {
                 $(this).parent().parent().css('background', 'lightblue');
             } else {
-                    $(this).parent().parent().css('background', 'white');
+                    $(this).parent().parent().css('background', 'transparent');
             };
+        });
+    </script>
+    <script>
+        //請問 .prop('checked', true) 和 .prop('checked', 'checked')  兩者是一樣的嗎?
+        $('button').click(function () {
+            $('input[type="checkbox"]').eq(0).prop('checked', true);
+            console.log('prop:', $('input[type="checkbox"]').eq(0).prop('checked'));
+            console.log('attr:', $('input[type="checkbox"]').eq(3).attr('checked'));
         });
     </script>
 </body>
