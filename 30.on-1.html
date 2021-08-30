@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on-1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div id="add" class="btn btn-primary">ADD</div>
+        </div>
+        <div class="row">
+            <p>清單</p>
+            <ul>
+                <li>item1</li>
+                <li>item2</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./jquery-3.6.0.js"></script>
+
+    <script>
+        let i = 2;
+        $('#add').click(function(){
+            i++;
+            $('ul').append(`<li>item${i}</li>`);
+        });
+
+        //動態綁定，找出父層後再綁定子層
+        $('ul').on('click','li', function(){
+            console.log('hi li', $(this).text());
+        })
+    </script>
+</body>
+
+</html>

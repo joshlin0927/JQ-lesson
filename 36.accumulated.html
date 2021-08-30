@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<title>accumulated</title>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: #afa;
+    }
+</style>
+
+</head>
+
+<body>
+    <div class="box">box</div>
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+
+        // $('.box').on('click', function(){
+            
+        //     const boxWidth = $('.box').css('width');
+        //     //因為boxWidth是100px，背部是純數字，所以要parseInt
+        //     $('.box').css('width',parseInt(boxWidth) + 10 );
+            
+        // });
+
+        $('.box').on('click', function(){
+            $(this).css("left", "+=100");
+        });
+
+    </script>
+</body>
+
+</html>

@@ -18,10 +18,10 @@
 
 
 <body>
-
     <div class="container">
         <div class="row">
             <form>
+            <!-- label因為for有寫input的id，所以點擊label時，也會有input focus的效果 -->
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -50,9 +50,16 @@
             console.log('this=', $('input[type=checkbox]'));
             $('input[type = email]').val('background@gmail.com');
             $('input[type = password]').val('123456789');
-            // $('input[type=checkbox]').attr('checked',true);
+            /* 
+            $('input[type=checkbox]').attr('checked',true);
+            因為attr的特性，這裡不是自定義的屬性，所以不用這個
+            */
             $('input[type=checkbox]').prop('checked',true);
-            //怎麼讓checkbox被check?
+            /*
+            prop與attr的差別：
+            一個是html固有元素，返還的值是true or false，
+            一個是html自定義的DOM屬性，返還的值是字串
+            */
         });
     </script>
 </body>

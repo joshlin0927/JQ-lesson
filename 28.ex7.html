@@ -10,6 +10,8 @@
             margin: 0;
             padding: 0;
             height: 300vh;
+            transition: .5s;
+            overflow: hidden;
         }
 
         .wrap {
@@ -23,7 +25,15 @@
         .box {
             background-color: pink;
             height: 50px;
-            width: 10%;
+            width: 0%;
+
+        }
+        .img-wrap{
+            width: 200px;
+            position: absolute;
+            top: 250px;
+            transform: translateX(1400px);
+            transition: .5s;
         }
     </style>
     <title>ex7</title>
@@ -31,35 +41,62 @@
 
 <body>
     <div class="wrap">
-        <div class="box">
-
-        </div>
+        <div class="box"></div>
+    </div>
+    <div class="img-wrap">
+        <img src="./imgs/product1.jpg" alt="" class="img-fluid">
     </div>
 
     <script src="./jquery-3.6.0.js"></script>
     <script>
+        //不複製原有的程式碼，而是寫成功能再叫回，這就叫做重構
+        
+        $(window).resize(function(){
+            //resize是觸發功能的方式，所以可以再叫功能回來
+            scrollBarReader()
+        });
+
         $(window).scroll(function () {
+            //scroll是觸發功能的方式，所以可以再叫功能回來
+            scrollBarReader()
+        })
+
+        function scrollBarReader(){
             // 1.使用者滾到哪?數字多少?
-            console.log('scrollTop', $(this).scrollTop());
+            // console.log('scrollTop', $(this).scrollTop());
 
             // 2.網頁內容全部多長?
-            console.log($('body').scrollTop());
+            // console.log($('body').height());
 
             // 3.計算出閱讀百分比(誰是分母?誰是分子)
-            const percentage = ($(this).scrollTop() / $('body').height()) * 100;
-            console.log(parseInt(percentage));
 
+            const bodyHeight=$('body').height();
+            // console.log('bodyHeight:', bodyHeight);
+
+            const WindowHeight = $(window).height();
+            // console.log('bodyHeight:', WindowHeight);
+
+            const percentage = ($(this).scrollTop() / (bodyHeight-WindowHeight)) * 100;
+            
+            // console.log(parseInt(percentage));
+
+            
             // 4.最後，把CSS加入，改動寬度百分比
-            if (percentage == 66) {
-                $(window).scroll(function () {
-                    $('.box').css('width', `100%`);
-                });
-            } else {
-                $('.box').css('width', `${percentage}%`);
+            $('.box').css('width', `${percentage}%`);
+ 
+            // scrollTop無法計算當前正在看的畫面的高，只能算已經滑過去的。
+            // $(window).height()，算的是當前正在看的畫面的高。
+            if(percentage>20){
+                $('body').css('background', 'orange');
+                $('.img-wrap').css('transform', 'translateX(600px)');
+            }else {
+                $('body').css('background', 'transparent');
+                $('.img-wrap').css('transform', 'translateX(1400px)');
             }
-            //TODO: 為什麼不能變成100%？
-            // scrollTop無法機算當前正在看的畫面的高，只能算已經滑過去的。
-        })
+
+        }
+
+
     </script>
 </body>
 

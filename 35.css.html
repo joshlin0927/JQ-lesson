@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<title>css</title>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: #afa;
+    }
+</style>
+
+</head>
+
+<body>
+    <div class="box">box</div>
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        //取得box的背景色的實際樣式
+        console.log('box background-color:', $('.box').css('background-color'));
+
+        var style = {
+            color: "#fff",
+            background: "#000",
+        };
+
+
+        //下判斷式，如果顏色是console.log取出來的樣式，就可以點擊變色
+        $('.box').on('click', function(){
+            if($(this).css('background-color')=='rgb(170, 255, 170)'){
+                
+                //因為上面已經宣告了css的樣式，所以可以直接帶入
+                $(this).css(style);
+            }else{
+                $(this).css('background-color', '#afa');
+            }
+            
+        })
+
+
+    </script>
+</body>
+
+</html>
