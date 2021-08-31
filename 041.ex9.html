@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<title>ex9</title>
+<style>
+    .s {
+        font-size: 1rem;
+    }
+
+    .m {
+        font-size: 1.2rem;
+    }
+
+    .l {
+        font-size: 1.4rem;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-end">
+            <button class="s btn btn-info" id="S">S</button>
+            <button class="m btn btn-info" id="M">M</button>
+            <button class="l btn btn-info" id="L">L</button>
+        </div>
+        <div class="row">
+            <h2>jQuery</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident asperiores, nihil molestias voluptas
+                harum, ipsum nobis cum amet, facilis voluptatem numquam perferendis quaerat facere eius officia. Quidem
+                libero voluptas commodi.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur minima ipsa qui doloremque eveniet,
+                deserunt consequuntur, deleniti odit perspiciatis similique eum aut obcaecati vero! Vero assumenda esse
+                dolorum tempore necessitatibus?</p>
+        </div>
+    </div>
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        // $('#S').on('click', function () {
+        //     // console.log('hi');
+        //     $('p').removeClass().addClass('s');
+        //     $(this).addClass('active').siblings().removeClass('active');
+        // });
+        // $('#M').on('click', function () {
+        //     // console.log('hi');
+        //     $('p').removeClass().addClass('m');
+        //     $(this).addClass('active').siblings().removeClass('active');
+        // });
+        // $('#L').on('click', function () {
+        //     // console.log('hi');
+        //     $('p').removeClass().addClass('l');
+        //     $(this).addClass('active').siblings().removeClass('active');
+        // });
+        $('.btn').on('click', function () {
+            // console.log('hi S', $(this).is(':contains(S)'));
+
+            if ($(this).is(':contains(S)')) {
+                $('p').removeClass().addClass('s');
+                $(this).addClass('active').siblings().removeClass('active');
+            }
+            if ($(this).is(':contains(M)')) {
+                $('p').removeClass().addClass('m');
+                $(this).addClass('active').siblings().removeClass('active');
+            }
+            if ($(this).is(':contains(L)')) {
+                $('p').removeClass().addClass('l');
+                $(this).addClass('active').siblings().removeClass('active');
+            }
+        })
+    </script>
+
+</body>
+
+</html>

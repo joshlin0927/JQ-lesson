@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>removeClass</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 200px;
+            background-color: #afa;
+            transition: 1s;
+        }
+        .bg-pink{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="" id="">
+    
+    <button id="add">Add</button>
+    <button id="remove">Remove</button>
+
+    <div class="box"></div>
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        //全域宣告與區域宣告
+        
+        $('#add').on('click', function(){
+            const inputVal = $('input[type=text]').val();
+            $('.box').addClass(inputVal);
+            console.log(inputVal);
+        });
+        $('#remove').on('click', function(){
+            const inputVal = $('input[type=text]').val();
+            console.log(inputVal);
+            $('.box').removeClass(inputVal);
+        });
+    </script>
+</body>
+</html>
