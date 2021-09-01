@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset</title>
+    <style>
+        .height {
+            height: 800px;
+            width: 100%;
+            background-color: grey;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #afa;
+            transition: 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="height"></div>
+    <div class="box"></div>
+    <div class="height"></div>
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        console.log('boxOffset', $('.box').offset());
+        
+        //box 的兩邊多出來的 8 就是 body 的 margin
+        console.log('boxOffsetLeft', $('.box').offset().left);
+        console.log('boxOffsetTop', $('.box').offset().top);
+
+        //移動到網頁的 top:50px，left:100px 這個絕對位置
+        // $('.box').offset({
+        //     top:50, //可以填寫字串，或者是數字
+        //     left:100,
+        // });
+
+        $(window).scroll(function () {
+            console.log('scrollTop', $(window).scrollTop());
+            console.log('window Height', $(window).height());
+
+            //需要計算高度的做法
+            /*
+            if($(window).scrollTop()>217){
+                $('.box').css('background','orange');
+            }
+            */
+
+            //不需要計算的做法
+            if ($(window).scrollTop() > ($('.box').offset().top - $(window).height()/2)) {
+                console.log(($('.box').offset().top - $(window).height()/2));
+                $('.box').css('background', 'orange');
+            }
+        })
+    </script>
+</body>
+
+</html>

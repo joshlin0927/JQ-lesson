@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>animeCss</title>
+    <style>
+        h1 {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="animate__animated">An animated element</h1>
+
+    <!-- data-在減號之後開始可以自由定義名稱 (JQ JS 都可以用這個方式) 用來傳值-->
+    <button data-animation-name="animate__bounce">bounce</button>
+    <button data-animation-name="animate__shakeY">shakeY</button>
+    <button data-animation-name="animate__flash">flash</button>
+    <button data-animation-name="animate__swing">swing</button>
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        //執行一次加class之後就先綁定，然後再刪除已經加上去的class
+        // $('button').on('click', function () {
+
+        //     console.log('my-data:', $(this).data('animation-name'))
+        //     const animateName = $(this).data('animation-name');
+
+        //     $('h1').addClass(animateName).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+        //         $(this).removeClass(animateName);
+        //     });
+        // });
+
+        $('button').on('click', function () {
+
+            console.log('my-data:', $(this).text())
+            const animateName = `animate__${$(this).text()}`;
+            console.log('className:', animateName)
+
+            $('h1').addClass(animateName).one(
+                'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+                function () {
+                    $(this).removeClass(animateName);
+                });
+        });
+    </script>
+</body>
+
+</html>

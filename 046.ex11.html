@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex11</title>
+    <style>
+        body {
+            height: 500vh;
+        }
+
+        .banner {
+            width: 100%;
+            height: 200px;
+            background: url(https://cdn.pixabay.com/photo/2021/08/22/08/54/bird-6564593_960_720.jpg) no-repeat center;
+        }
+
+        nav {
+            height: 60px;
+            background-color: #f2f2f2;
+            text-align: center;
+            position: static;
+        }
+
+        nav.fixed {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="banner"></div>
+    <nav >hello nav</nav>
+
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        const offsetTop = $('nav').offset().top;
+        
+        $(window).scroll(function () {
+            console.log('scrollTop',$(window).scrollTop())
+            console.log('nav', $('nav').offset().top)
+
+            if ($(window).scrollTop() >= offsetTop) {
+                $('nav').addClass('fixed');
+            }else{
+                $('nav').removeClass('fixed');
+            }
+
+        })
+    </script>
+</body>
+
+</html>

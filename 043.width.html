@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>width</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #afa;
+            padding: 20px;
+            border: 5px solid #000;
+            margin: 20px;
+            box-sizing:content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        console.log('width', $('.box').width());
+        console.log('width', $('.box').height());
+
+        //所有東西再加上padding
+        console.log('width', $('.box').innerWidth());
+        console.log('width', $('.box').innerHeight());
+
+        //所有東西再加上border
+        console.log('width', $('.box').outerWidth());
+        console.log('width', $('.box').outerHeight());
+
+        //所有東西再加上margin
+        console.log('width', $('.box').outerWidth(true));
+        console.log('width', $('.box').outerHeight(true));
+    </script>
+</body>
+</html>

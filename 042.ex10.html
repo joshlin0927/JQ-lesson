@@ -49,6 +49,15 @@
     </div>
     <script src="./jquery-3.6.0.js"></script>
     <script>
+        
+        // function RGBINT(){
+            console.log(Math.floor(Math.random() * Math.floor(256)));
+        // }
+            const rgbInt = Math.floor(Math.random() * Math.floor(256));
+            function autoRGB (){
+                return `rgba(${rgbInt}, ${rgbInt}, ${rgbInt})`;
+            }
+
         $('.color-selector-area').on('click','.color-selector', function () {
             console.log('hi', ($(this).css('background-color')));
             const bgColor = $(this).css('background-color');
