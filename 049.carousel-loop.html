@@ -27,7 +27,7 @@
             list-style: none;
             padding: 0;
             /* transform: translateX(-00px); */
-            transition: .5s;
+            /* transition: .5s; */
         }
 
         li.car {
@@ -105,53 +105,70 @@
     <script>
         let page = 0;
         let setIntervalID = '';
+        const unit = $('img').width();
+        
 
         function MySetInterval() {
             setIntervalID = setInterval(() => {
 
                 page++;
-                // if (page > 4) {
-                //     page = 0;
-                // };
+                if (page > 5) return;
                 changePage();
             }, 3000);
         };
 
         $('.slider-dots li').hover(function () {
             clearInterval(setIntervalID);
-            let x = $(this).index();
-            page = x;
 
+            page = $(this).index();
             changePage()
         }, function () {
             // MySetInterval();
         });
 
-
+        //為了解決轉換真假圖被發現的問題，所以要把transition拉出來
+        //TODO：for each塞圖片
+        
         function changePage() {
-            $('.train').css('transform', `translateX(${page * -800 - 800}px)`);
+            const moveX = (page*-unit)-unit;
+            $('.train').css('transition', '.2s').css('transform', `translateX(${moveX}px)`);
+            $('.slider-dots li').eq(page).css('background', 'white').siblings().css('background', 'transparent');
+        }
+
+        function changePageQuietly() {
+            const moveX = (page*-unit)-unit;
+            $('.train').css('transition', 'none').css('transform', `translateX(${moveX}px)`);
             $('.slider-dots li').eq(page).css('background', 'white').siblings().css('background', 'transparent');
         }
 
         $('.prev').on('click', function () {
             console.log('prev')
             page--;
-            // if (page < 0) {
-            //     page = 4;
-            // };
+            if (page < 0) return;
             changePage();
         });
 
         $('.next').on('click', function () {
             console.log('next')
             page++;
-            // if (page > 4) {
-            //     page = 0;
-            // };
+            if (page > 5) return;  
             changePage();
-
         });
 
+        $('.train').on('transitionend',function(){
+            if(page >= 5){
+                page = 0;
+                changePageQuietly()
+            };
+            if(page <= 0){
+                page = 5;
+                changePageQuietly()
+            };
+        })
+
+
+
+        changePage();
         // MySetInterval();
     </script>
 </body>

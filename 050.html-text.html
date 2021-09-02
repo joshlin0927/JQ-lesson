@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html text</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style>
+        span{
+            color: rgb(206, 78, 99);
+        }
+    </style>
+</head>
+<body>
+    <button id="getText" class="btn btn-primary">get text</button>
+    <button id="getHtml" class="btn btn-primary">get html</button>
+    <button id="getHtml-writeText" class="btn btn-primary">get html write text</button>
+
+    <h1 id="sample">Hello <span>World</span></h1>
+    <h1 id="result"></h1>
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        $('#getText').on('click',function(){
+            // console.log('getText');
+
+            //只要純文字的話，就可以透做text來提取，就是JS的innerText
+            const sampleText = $('#sample').text();
+            $('#result').text(sampleText);
+        })
+
+        $('#getHtml').on('click', function(){
+            console.log('getHtml', $('#sample').html());
+
+            //會提取包括html的標籤
+            const sampleHtml = $('#sample').html();
+            $('#result').html(sampleHtml);
+
+
+        })
+
+        $('#getHtml-writeText').on('click', function(){
+            console.log('getHtml-writeText', $('#sample').html());
+
+            //會提取包括html的標籤
+            const sampleHtml = $('#sample').html();
+            $('#result').text(sampleHtml);
+        })
+    </script>
+</body>
+</html>
