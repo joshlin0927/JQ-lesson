@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>remove</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="hello helloWorld">helloWorld</h1>
+            <h1 class="hello helloWorld1">helloWorld1</h1>
+            <h1 class="hello helloWorld2">helloWorld2</h1>
+        </div>
+    </div>
+
+
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        // 將被指定對象完全消除
+        $('h1').on('click', function () {
+            $(this).remove('.hello');
+        })
+    </script>
+</body>
+
+</html>

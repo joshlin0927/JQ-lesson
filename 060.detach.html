@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detach</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="hello helloWorld">helloWorld</h1>
+            <h1 class="hello helloWorld1"><div>helloWorld1</div></h1>
+            <h1 class="hello helloWorld2">helloWorld2</h1>
+        </div>
+    </div>
+
+    <button>paste</button>
+    <button id="slide">slide</button>
+
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        // 能夠把對象拉下來並暫時儲存
+        let myh1;
+
+        $('h1').on('click', function () {
+           myh1 = $(this).detach();
+        })
+
+        $('button').on('click',function(){
+            $('.row').append(myh1);
+        })
+
+        $('#slide').on('click',function(){
+            $('h1').slideToggle();
+        })
+
+    </script>
+</body>
+
+</html>

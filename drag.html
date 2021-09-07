@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>drag</title>
+    <style>
+        .img-wrap {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px;
+            overflow: hidden;
+        }
+
+        .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row border">
+            <img src="./imgs/person1.jpg" alt="">
+            <img src="./imgs/person2.jpg" alt="">
+            <img src="./imgs/person3.jpg" alt="">
+        </div>
+        <div class="row border mt-1">
+            <img src="./imgs/person4.jpg" alt="">
+            <img src="./imgs/person5.jpg" alt="">
+        </div>
+    </div>
+
+
+
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        // 會將全部的東西從原處抽離，並消除原處，然後都包到一個被指定的html裡
+
+        $('img').on('drag', function () {
+            console.log('dragged');
+        })
+    </script>
+</body>
+
+</html>

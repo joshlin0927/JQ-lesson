@@ -106,13 +106,16 @@
         let page = 0;
         let setIntervalID = '';
         const unit = $('img').width();
-        
+
 
         function MySetInterval() {
             setIntervalID = setInterval(() => {
 
                 page++;
-                if (page > 5) return;
+                if (page > 5) {
+                    // changePageQuietly();
+                    return;
+                };
                 changePage();
             }, 3000);
         };
@@ -123,20 +126,21 @@
             page = $(this).index();
             changePage()
         }, function () {
-            // MySetInterval();
+            MySetInterval();
         });
 
         //為了解決轉換真假圖被發現的問題，所以要把transition拉出來
         //TODO：for each塞圖片
-        
+        //自動輪播也要有
+
         function changePage() {
-            const moveX = (page*-unit)-unit;
+            const moveX = (page * -unit) - unit;
             $('.train').css('transition', '.2s').css('transform', `translateX(${moveX}px)`);
             $('.slider-dots li').eq(page).css('background', 'white').siblings().css('background', 'transparent');
         }
 
         function changePageQuietly() {
-            const moveX = (page*-unit)-unit;
+            const moveX = (page * -unit) - unit;
             $('.train').css('transition', 'none').css('transform', `translateX(${moveX}px)`);
             $('.slider-dots li').eq(page).css('background', 'white').siblings().css('background', 'transparent');
         }
@@ -151,16 +155,16 @@
         $('.next').on('click', function () {
             console.log('next')
             page++;
-            if (page > 5) return;  
+            if (page > 5) return;
             changePage();
         });
 
-        $('.train').on('transitionend',function(){
-            if(page >= 5){
+        $('.train').on('transitionend', function () {
+            if (page >= 5) {
                 page = 0;
                 changePageQuietly()
             };
-            if(page <= 0){
+            if (page <= 0) {
                 page = 5;
                 changePageQuietly()
             };
@@ -168,7 +172,7 @@
 
 
 
-        changePage();
+        changePageQuietly();
         // MySetInterval();
     </script>
 </body>
